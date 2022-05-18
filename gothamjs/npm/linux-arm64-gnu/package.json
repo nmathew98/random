@@ -1,0 +1,21 @@
+{
+  "name": "@skulpture/gothamjs-linux-arm64-gnu",
+  "version": "0.0.0",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "gothamjs.linux-arm64-gnu.node",
+  "files": [
+    "gothamjs.linux-arm64-gnu.node"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  },
+  "libc": [
+    "glibc"
+  ]
+}
