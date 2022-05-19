@@ -2,11 +2,11 @@
 // Address all the TODOs to make the tests pass!
 
 struct ColorClassicStruct {
-	name: &'static str,
-	hex: &'static str,
+	name: String,
+	hex: String,
 }
 
-struct ColorTupleStruct(&'static str, &'static str);
+struct ColorTupleStruct(String, String);
 
 #[derive(Debug)]
 struct UnitStruct;
@@ -19,8 +19,8 @@ mod tests {
 	fn classic_c_structs() {
 		// TODO: Instantiate a classic c struct!
 		let green = ColorClassicStruct {
-			name: "green",
-			hex: "#00FF00",
+			name: String::from("green"),
+			hex: String::from("#00FF00"),
 		};
 
 		assert_eq!(green.name, "green");
@@ -30,7 +30,7 @@ mod tests {
 	#[test]
 	fn tuple_structs() {
 		// TODO: Instantiate a tuple struct!
-		let green = ColorTupleStruct("green", "#00FF00");
+		let green = ColorTupleStruct(String::from("green"), String::from("#00FF00"));
 
 		assert_eq!(green.0, "green");
 		assert_eq!(green.1, "#00FF00");
