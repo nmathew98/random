@@ -7,9 +7,7 @@ function* fibonnaci() {
 	while (true) {
 		yield a;
 
-		const oldB = b;
-		b = a + b;
-		a = oldB;
+		[a, b] = [b, a + b];
 	}
 }
 

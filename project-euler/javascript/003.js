@@ -7,7 +7,7 @@ function findPrimeFactors(n) {
 	for (let divisor = 2, x = n; x >= 2; divisor++) {
 		if (divisor in factors) continue;
 
-		if (!(x % divisor)) {
+		if (x % divisor === 0) {
 			factors.push(divisor);
 			x = x / divisor;
 		}

@@ -1,15 +1,18 @@
 var assert = require("assert/strict");
 var crypto = require("crypto");
 
-function findLargestPalindromeProduct() {
+function findLargestPalindromeProduct(magnitude = 3) {
 	const palindromes = [];
 
-	for (let i = 999; i >= 100; i--) {
-		for (let j = 999; j >= 100; j--) {
+	const initial = +"9".repeat(magnitude);
+	const delta = Math.pow(10, magnitude - 1);
+
+	for (let i = initial; i >= initial - delta; i--) {
+		for (let j = initial; j >= initial - delta; j--) {
 			const product = `${i * j}`;
 
 			if (product === product.split("").reverse().join("")) {
-				palindromes.push(product);
+				palindromes.push(+product);
 			}
 		}
 	}
