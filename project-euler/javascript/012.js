@@ -1,14 +1,14 @@
 var assert = require("assert/strict");
 var crypto = require("crypto");
 
+// https://stackoverflow.com/questions/17743851/optimise-the-solution-to-project-euler-12-python
+
 function* triangleNumber() {
-	let sum = 0;
-	let j = 0;
-
+	// http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/runsums/triNbProof.html
 	for (let i = 1; i <= Infinity; i++) {
-		for (; j <= i; j++) sum += j;
+		const calculateNthTriangleNumber = i => (i * (i + 1)) / 2;
 
-		yield sum;
+		yield calculateNthTriangleNumber(i);
 	}
 }
 
@@ -16,8 +16,8 @@ function findTriangleNumberWithOverNDivisors(n) {
 	for (let number of triangleNumber()) {
 		const factors = [];
 
-		for (let i = 0; i <= number; i++)
-			if (number % i === 0) factors.push(number);
+		for (let i = 0; i <= Math.sqrt(number) + 1; i++)
+			if (number % i === 0) factors.push(i, n / i);
 
 		if (factors.length > n) return number;
 	}

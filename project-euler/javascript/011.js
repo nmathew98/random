@@ -82,7 +82,7 @@ function findAdjacentProductVec(direction) {
 		for (let i = 0; i < diagonalSlices.length; i++) {
 			const productsInDiagonal = [];
 
-			for (let j = 0; j < diagonalSlices.length; j++) {
+			for (let j = 0; j < diagonalSlices[i].length; j++) {
 				productsInDiagonal.push(
 					diagonalSlices[i].slice(j, j + 4).reduce(collectProduct, 1),
 				);
